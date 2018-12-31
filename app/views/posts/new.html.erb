@@ -1,0 +1,24 @@
+<div id="preview"></div>
+
+<%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
+  <%= form.text_area :keyword, id: :keyword, class:'form-control', rows:"1" %>
+  <div id="search" data-url=<%= root_path %>>search</div>
+<% end %>
+<div id="display"></div>
+
+<script>
+  $("#search").on("click", function () {
+    var keyword = $("#keyword").val();
+    var url = $('#search').data('url')
+    $.ajax({
+      url: url,
+      type: 'GET',
+      // jsonで返してねってこと
+      dataType: 'json',
+      async: true,
+      data: {keyword: keyword},
+    }).done(function(data){
+      $('#display').html(data.content);
+    });
+  });
+</script>

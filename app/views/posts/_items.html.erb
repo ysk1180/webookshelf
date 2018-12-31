@@ -1,0 +1,7 @@
+<% books&.each.with_index(1) do |book, index| %>
+  <div id="item<%= index %>">
+    <%= image_tag book[:image], width: '100px' %>
+    <%= book[:title] %>
+    <%= book[:url] %>
+  </div>
+<% end %>
