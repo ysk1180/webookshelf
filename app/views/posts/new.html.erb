@@ -1,4 +1,6 @@
-<div id="preview"></div>
+<div id="preview">
+  <img src="" id="preview_image1">
+</div>
 
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
   <%= form.text_area :keyword, id: :keyword, class:'form-control', rows:"1" %>
