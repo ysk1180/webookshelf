@@ -1,20 +1,19 @@
 <% books&.each.with_index(1) do |book, index| %>
-  <div class="item" data-item="<%= index %>">
+  <div class="item" data-item="<%= index %>" data-url="<%= book[:url] %>">
     <%= image_tag book[:image], width: '100px', id: "image#{index}" %>
     <%= book[:title] %>
-    <%= book[:url] %>
   </div>
 <% end %>
 
 <script>
   // プレビュー表示させるためのメソッド
-  function preview_image(preview_number, image_number){
+  function preview_image(preview_number, image_number, url){
     var src = $(`#image${image_number}`).attr('src');
-    return $(`#preview_image${preview_number}`).attr("src", src);
+    $(`#preview_image${preview_number}`).attr("src", src);
+    $(`#preview_url${preview_number}`).attr("href", url);
   }
 
-
   $(".item").on("click", function () {
-    preview_image(1,$(this).data('item'));
+    preview_image(1, $(this).data('item'),$(this).data('url') );
   });
 </script>
