@@ -1,5 +1,5 @@
 <% books&.each.with_index(1) do |book, index| %>
-  <div id="item<%= index %>">
+  <div class="item" data-item="<%= index %>">
     <%= image_tag book[:image], width: '100px', id: "image#{index}" %>
     <%= book[:title] %>
     <%= book[:url] %>
@@ -7,8 +7,14 @@
 <% end %>
 
 <script>
-  $("#item1").on("click", function () {
-    var src1 = $("#image1").attr('src');
-    $("#preview_image1").attr("src", src1);
+  // プレビュー表示させるためのメソッド
+  function preview_image(preview_number, image_number){
+    var src = $(`#image${image_number}`).attr('src');
+    return $(`#preview_image${preview_number}`).attr("src", src);
+  }
+
+
+  $(".item").on("click", function () {
+    preview_image(1,$(this).data('item'));
   });
 </script>
