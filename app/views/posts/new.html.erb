@@ -31,17 +31,61 @@
   </div>
 
   <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
-    <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
-    <div id="display1"></div>
-    <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
-    <div id="display2"></div>
-    <%= form.text_area :keyword3, id: :keyword3, class:'form-control', rows:"1" %>
-    <div id="display3"></div>
-    <%= form.text_area :keyword4, id: :keyword4, class:'form-control', rows:"1" %>
-    <div id="display4"></div>
-    <%= form.text_area :keyword5, id: :keyword5, class:'form-control', rows:"1" %>
-    <div id="display5"></div>
-    <%= form.text_area :title, id: :title, value: 'わたしの本棚', class:'form-control', rows:"1" %>
+    <div class='form'>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          １冊目
+        </div>
+        <div class="form-group col-9">
+          <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
+        </div>
+      </div>
+      <div id="display1"></div>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          ２冊目
+        </div>
+        <div class="form-group col-9">
+          <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
+        </div>
+      </div>
+      <div id="display2"></div>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          ３冊目
+        </div>
+        <div class="form-group col-9">
+          <%= form.text_area :keyword3, id: :keyword3, class:'form-control', rows:"1" %>
+        </div>
+      </div>
+      <div id="display3"></div>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          ４冊目
+        </div>
+        <div class="form-group col-9">
+          <%= form.text_area :keyword4, id: :keyword4, class:'form-control', rows:"1" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          ５冊目
+        </div>
+        <div class="form-group col-9">
+          <div id="display4"></div>
+          <%= form.text_area :keyword5, id: :keyword5, class:'form-control', rows:"1" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-3 form-text">
+          タイトル
+        </div>
+        <div class="form-group col-9">
+          <div id="display5"></div>
+          <%= form.text_area :title, id: :title, value: 'わたしの本棚', class:'form-control', rows:"1" %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
