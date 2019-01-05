@@ -1,47 +1,49 @@
-<div id="preview">
-  <%= image_tag 'bookshelf.png', width: 315 %>
-  <span id="title_preview">
-  </span>
-  <span id="img1">
-    <a href="" target="_blank" id="preview_url1">
-      <img src="" id="preview_image1" width="55px">
-    </a>
-  </span>
-  <span id="img2">
-    <a href="" target="_blank" id="preview_url2">
-      <img src="" id="preview_image2" width="55px">
-    </a>
-  </span>
-  <span id="img3">
-    <a href="" target="_blank" id="preview_url3">
-      <img src="" id="preview_image3" width="55px">
-    </a>
-  </span>
-  <span id="img4">
-    <a href="" target="_blank" id="preview_url4">
-      <img src="" id="preview_image4" width="55px">
-    </a>
-  </span>
-  <span id="img5">
-    <a href="" target="_blank" id="preview_url5">
-      <img src="" id="preview_image5" width="55px">
-    </a>
-  </span>
-</div>
+<div class="container">
+  <div id="preview">
+    <%= image_tag 'bookshelf.png', width: 315 %>
+    <span id="title_preview">
+    </span>
+    <span id="img1">
+      <a href="" target="_blank" id="preview_url1">
+        <img src="" id="preview_image1" width="55px">
+      </a>
+    </span>
+    <span id="img2">
+      <a href="" target="_blank" id="preview_url2">
+        <img src="" id="preview_image2" width="55px">
+      </a>
+    </span>
+    <span id="img3">
+      <a href="" target="_blank" id="preview_url3">
+        <img src="" id="preview_image3" width="55px">
+      </a>
+    </span>
+    <span id="img4">
+      <a href="" target="_blank" id="preview_url4">
+        <img src="" id="preview_image4" width="55px">
+      </a>
+    </span>
+    <span id="img5">
+      <a href="" target="_blank" id="preview_url5">
+        <img src="" id="preview_image5" width="55px">
+      </a>
+    </span>
+  </div>
 
-<%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
-  <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
-  <div id="display1"></div>
-  <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
-  <div id="display2"></div>
-  <%= form.text_area :keyword3, id: :keyword3, class:'form-control', rows:"1" %>
-  <div id="display3"></div>
-  <%= form.text_area :keyword4, id: :keyword4, class:'form-control', rows:"1" %>
-  <div id="display4"></div>
-  <%= form.text_area :keyword5, id: :keyword5, class:'form-control', rows:"1" %>
-  <div id="display5"></div>
-  <%= form.text_area :title, id: :title, value: 'わたしの本棚', class:'form-control', rows:"1" %>
-<% end %>
+  <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
+    <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
+    <div id="display1"></div>
+    <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
+    <div id="display2"></div>
+    <%= form.text_area :keyword3, id: :keyword3, class:'form-control', rows:"1" %>
+    <div id="display3"></div>
+    <%= form.text_area :keyword4, id: :keyword4, class:'form-control', rows:"1" %>
+    <div id="display4"></div>
+    <%= form.text_area :keyword5, id: :keyword5, class:'form-control', rows:"1" %>
+    <div id="display5"></div>
+    <%= form.text_area :title, id: :title, value: 'わたしの本棚', class:'form-control', rows:"1" %>
+  <% end %>
+</div>
 
 <script>
   function search(keyword ,index){
