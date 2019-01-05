@@ -30,7 +30,7 @@ class PostsController < ApplicationController
         end
         ret =
           {
-            content: render_to_string(partial: 'posts/items.html.erb', locals: {books: @books}),
+            content: render_to_string(partial: 'posts/items.html.erb', locals: {books: @books, index_number: params[:index]}),
         }
         render json: ret
       end

@@ -2,45 +2,53 @@
   <a href="" target="_blank" id="preview_url1">
     <img src="" id="preview_image1" width="100px">
   </a>
+  <a href="" target="_blank" id="preview_url2">
+    <img src="" id="preview_image2" width="100px">
+  </a>
 </div>
 
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
-  <%= form.text_area :keyword, id: :keyword, class:'form-control', rows:"1" %>
-  <div id="search" data-url=<%= root_path %>>search</div>
+  <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
+  <div id="display1"></div>
+  <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
+  <div id="display2"></div>
 <% end %>
-<div id="display"></div>
 
 <script>
-  // $("#search").on("click", function () {
-
-  // 入力後一定時間が過ぎた後にajax処理
-  // 参考にした情報：https://code.i-harness.com/ja/q/1d22c1
-  var globalTimeout = null;
-  $('#keyword').keyup(function() {
+  function search(keyword ,index){
     if (globalTimeout != null) {
       clearTimeout(globalTimeout);
     }
     globalTimeout = setTimeout(function() {
       globalTimeout = null;
 
-      //ajax code
-      var keyword = $("#keyword").val();
-
       // キーワードに入力がないときは検索しないようにする
       if (keyword === ''){return false};
 
-      var url = $('#search').data('url')
       $.ajax({
-        url: url,
+        url: '/',
         type: 'GET',
         // jsonで返してねってこと
         dataType: 'json',
         async: true,
-        data: {keyword: keyword},
+        data: {keyword: keyword, index: index},
       }).done(function(data){
-        $('#display').html(data.content);
+        $(`#display${index}`).css('display', '');
+        $(`#display${index}`).html(data.content);
       });
 
     }, 1000);
+  }
+
+  // 入力後一定時間が過ぎた後にajax処理
+  // 参考にした情報：https://code.i-harness.com/ja/q/1d22c1
+  var globalTimeout = null;
+  $('#keyword1').keyup(function() {
+    var keyword = $("#keyword1").val();
+    search(keyword, 1);
+  });
+  $('#keyword2').keyup(function() {
+    var keyword = $("#keyword2").val();
+    search(keyword, 2);
   });
 </script>
