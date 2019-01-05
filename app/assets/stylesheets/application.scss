@@ -41,3 +41,15 @@
 .form{
   margin: 10px 0;
 }
+
+.item{
+  display: table;
+  margin-bottom: 10px;
+}
+.item-img{
+  display: table-cell;
+}
+.item-title{
+  display: table-cell;
+  vertical-align: middle;
+}
