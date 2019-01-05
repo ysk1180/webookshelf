@@ -1,10 +1,15 @@
 <div id="preview">
-  <a href="" target="_blank" id="preview_url1">
-    <img src="" id="preview_image1" width="100px">
-  </a>
-  <a href="" target="_blank" id="preview_url2">
-    <img src="" id="preview_image2" width="100px">
-  </a>
+  <%= image_tag 'bookshelf.png', width: 315 %>
+  <span id="img1">
+    <a href="" target="_blank" id="preview_url1">
+      <img src="" id="preview_image1" width="50px">
+    </a>
+  </span>
+  <span id="img2">
+    <a href="" target="_blank" id="preview_url2">
+      <img src="" id="preview_image2" width="55px">
+    </a>
+  </span>
 </div>
 
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>

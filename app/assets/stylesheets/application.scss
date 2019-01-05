@@ -1,3 +1,17 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 @import "font-awesome";
+
+#preview{
+    position: relative;
+}
+#img1{
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+#img2{
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+}
