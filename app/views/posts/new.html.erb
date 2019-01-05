@@ -11,18 +11,36 @@
 <div id="display"></div>
 
 <script>
-  $("#search").on("click", function () {
-    var keyword = $("#keyword").val();
-    var url = $('#search').data('url')
-    $.ajax({
-      url: url,
-      type: 'GET',
-      // jsonで返してねってこと
-      dataType: 'json',
-      async: true,
-      data: {keyword: keyword},
-    }).done(function(data){
-      $('#display').html(data.content);
-    });
+  // $("#search").on("click", function () {
+
+  // 入力後一定時間が過ぎた後にajax処理
+  // 参考にした情報：https://code.i-harness.com/ja/q/1d22c1
+  var globalTimeout = null;
+  $('#keyword').keyup(function() {
+    if (globalTimeout != null) {
+      clearTimeout(globalTimeout);
+    }
+    globalTimeout = setTimeout(function() {
+      globalTimeout = null;
+
+      //ajax code
+      var keyword = $("#keyword").val();
+
+      // キーワードに入力がないときは検索しないようにする
+      if (keyword === ''){return false};
+
+      var url = $('#search').data('url')
+      $.ajax({
+        url: url,
+        type: 'GET',
+        // jsonで返してねってこと
+        dataType: 'json',
+        async: true,
+        data: {keyword: keyword},
+      }).done(function(data){
+        $('#display').html(data.content);
+      });
+
+    }, 1000);
   });
 </script>
