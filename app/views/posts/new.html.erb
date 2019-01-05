@@ -1,5 +1,7 @@
 <div id="preview">
   <%= image_tag 'bookshelf.png', width: 315 %>
+  <span id="title_preview">
+  </span>
   <span id="img1">
     <a href="" target="_blank" id="preview_url1">
       <img src="" id="preview_image1" width="55px">
@@ -28,6 +30,7 @@
 </div>
 
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
+  <%= form.text_area :title, id: :title, class:'form-control', rows:"1" %>
   <%= form.text_area :keyword1, id: :keyword1, class:'form-control', rows:"1" %>
   <div id="display1"></div>
   <%= form.text_area :keyword2, id: :keyword2, class:'form-control', rows:"1" %>
@@ -88,5 +91,10 @@
   $('#keyword5').keyup(function() {
     var keyword = $("#keyword5").val();
     search(keyword, 5);
+  });
+
+  $('#title').keyup(function(){
+    var content = $("#title").val();
+    $('#title_preview').html(content);
   });
 </script>
