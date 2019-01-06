@@ -73,6 +73,46 @@ footer a{
   font-weight: bold;
 }
 
+#view{
+  position: relative;
+  margin: 10px;
+  display: inline-block;
+  color: black;
+  font-family: "mushin";
+}
+#view_img1{
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+#view_img2{
+  position: absolute;
+  bottom: 20px;
+  left: 70px;
+}
+#view_img3{
+  position: absolute;
+  bottom: 20px;
+  left: 130px;
+}
+#view_img4{
+  position: absolute;
+  bottom: 20px;
+  left: 190px;
+}
+#view_img5{
+  position: absolute;
+  bottom: 20px;
+  left: 250px;
+}
+#title_view{
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .form{
   margin: 10px 0;
 }
@@ -127,4 +167,23 @@ footer a{
   overflow: hidden;/*はみ出た部分を隠す*/
   text-decoration:none;/*下線は消す*/
   text-shadow: 2px 2px 0px #4287d6;
+}
+
+.wrap{
+  text-align: center;
+}
+
+.info {
+  color: #A4A4A4;
+  font-size: 12px;
+}
+#you{
+  text-align: center;
+  color: white;
+}
+#recent-img{
+  text-align: center;
+}
+#recent-title{
+  color: white;
 }

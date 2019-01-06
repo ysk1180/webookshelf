@@ -1,32 +1,77 @@
-<div id="preview">
-  <%= image_tag 'bookshelf.png', width: 315 %>
-  <span id="title_preview">
-  </span>
-  <span id="img1" data-title="">
-    <a href="" target="_blank" id="preview_url1">
-      <img src="" id="preview_image1" width="55px">
-    </a>
-  </span>
-  <span id="img2" data-title="">
-    <a href="" target="_blank" id="preview_url2">
-      <img src="" id="preview_image2" width="55px">
-    </a>
-  </span>
-  <span id="img3" data-title="">
-    <a href="" target="_blank" id="preview_url3">
-      <img src="" id="preview_image3" width="55px">
-    </a>
-  </span>
-  <span id="img4" data-title="">
-    <a href="" target="_blank" id="preview_url4">
-      <img src="" id="preview_image4" width="55px">
-    </a>
-  </span>
-  <span id="img5" data-title="">
-    <a href="" target="_blank" id="preview_url5">
-      <img src="" id="preview_image5" width="55px">
-    </a>
-  </span>
+<% if @h.present? %>
+  <div class='wrap'>
+    <span><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i></span>
+    <div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
+    <div id='view'>
+      <%= image_tag 'bookshelf.png', width: 315 %>
+      <span id="title_view">
+        <%= @h_post.title %>
+      </span>
+      <span id="view_img1">
+        <a href="<%= @h_post.url1 %>" target="_blank" id="view_url1">
+          <img src="<%= @h_post.image1 %>" id="view_image1" width="55px">
+        </a>
+      </span>
+      <span id="view_img2">
+        <a href="<%= @h_post.url2 %>" target="_blank" id="view_url2">
+          <img src="<%= @h_post.image2 %>" id="view_image2" width="55px">
+        </a>
+      </span>
+      <span id="view_img3">
+        <a href="<%= @h_post.url3 %>" target="_blank" id="view_url3">
+          <img src="<%= @h_post.image3 %>" id="view_image3" width="55px">
+        </a>
+      </span>
+      <span id="view_img4">
+        <a href="<%= @h_post.url4 %>" target="_blank" id="view_url4">
+          <img src="<%= @h_post.image4 %>" id="view_image4" width="55px">
+        </a>
+      </span>
+      <span id="view_img5">
+        <a href="<%= @h_post.url5 %>" target="_blank" id="view_url5">
+          <img src="<%= @h_post.image5 %>" id="view_image5" width="55px">
+        </a>
+      </span>
+    </div>
+  </div>
+  <br>
+  <div id='you'>
+    <span><i>あなたの本棚をつくる</i></span>
+  </div>
+<% end %>
+
+<div class='wrap'>
+  <div id="preview">
+    <%= image_tag 'bookshelf.png', width: 315 %>
+    <span id="title_preview">
+    </span>
+    <span id="img1" data-title="">
+      <a href="" target="_blank" id="preview_url1">
+        <img src="" id="preview_image1" width="55px">
+      </a>
+    </span>
+    <span id="img2" data-title="">
+      <a href="" target="_blank" id="preview_url2">
+        <img src="" id="preview_image2" width="55px">
+      </a>
+    </span>
+    <span id="img3" data-title="">
+      <a href="" target="_blank" id="preview_url3">
+        <img src="" id="preview_image3" width="55px">
+      </a>
+    </span>
+    <span id="img4" data-title="">
+      <a href="" target="_blank" id="preview_url4">
+        <img src="" id="preview_image4" width="55px">
+      </a>
+    </span>
+    <span id="img5" data-title="">
+      <a href="" target="_blank" id="preview_url5">
+        <img src="" id="preview_image5" width="55px">
+      </a>
+    </span>
+  </div>
+  <div class='info'><i class="fa fa-info-circle fa-fw"></i>タイトルの一部を入力し、本を選んでください</div>
 </div>
 
 <div id='confirmation-button' style='display: none;'>
@@ -95,6 +140,39 @@
       <div class="form-group col-9">
         <%= form.text_area :name, id: :name, class:'form-control', rows:"1" %>
       </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @posts.present? %>
+  <div id="recent-img">
+    <div id='recent-title'>
+      <i class="fa fa-star fa-fw"></i>最近作られた本棚
+    </div>
+    <div>
+      <span class="info">今までに<%= @count %>個の本棚が作られたよ</span>
+    </div>
+    <% if @posts[2].present? %>
+      <div class='recent-name'>
+        <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i></span>
+      </div>
+      <div>
+        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[2].h %>.png" class="r-img"/>
+      </div>
+    <% end %>
+    <% if @posts[1].present? %>
+      <div class='recent-name'>
+        <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i></span>
+      </div>
+      <div>
+        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[1].h %>.png" class="r-img"/>
+      </div>
+    <% end %>
+    <div class='recent-name'>
+      <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i></span>
+    </div>
+    <div>
+      <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[0].h %>.png" class="r-img"/>
     </div>
   </div>
 <% end %>

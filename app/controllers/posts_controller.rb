@@ -1,8 +1,19 @@
 class PostsController < ApplicationController
   def new
-    # @post = Post.new
     respond_to do |format|
-      format.html {}
+      format.html do
+        @h = params[:h]
+        @h_post = Post.find_by(h: @h) if @h.present?
+        post = Post.all
+        if post[-3].present?
+          @posts = Post.last(3)
+        elsif post[-2].present?
+          @posts = Post.last(2)
+        elsif post.present?
+          @posts = Post.last
+        end
+        @count = post.count
+      end
       format.json do
         keyword = params[:keyword]
 
