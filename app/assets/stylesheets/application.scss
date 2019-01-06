@@ -53,6 +53,10 @@ body {
   margin: 10px 0;
 }
 
+.form-text{
+  text-align: center;
+}
+
 .item{
   display: table;
   margin-bottom: 10px;
@@ -63,6 +67,7 @@ body {
 .item-title{
   display: table-cell;
   vertical-align: middle;
+  padding-left: 10px;
 }
 
 #loading {
