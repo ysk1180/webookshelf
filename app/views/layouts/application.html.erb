@@ -16,6 +16,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <a href="/" style="color: white;">Web本棚</a>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+      <div>
+        <%= link_to '利用規約', terms_path %> / <%= link_to 'プライバシーポリシー', privacy_path %>
+      </div>
+      <div>
+        <a href="https://twitter.com/ysk_pro" target="_blank"><i class="fa fa-twitter fa-fw"></i>開発者Twitterアカウント</a>
+      </div>
+    </footer>
   </body>
 </html>
