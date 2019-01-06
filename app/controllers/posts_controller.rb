@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         elsif post[-2].present?
           @posts = Post.last(2)
         elsif post.present?
-          @posts = Post.last
+          @posts = [Post.last]
         end
         @count = post.count
       end
