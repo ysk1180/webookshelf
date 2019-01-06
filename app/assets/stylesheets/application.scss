@@ -2,10 +2,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  // background-image: image-url("background.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)),image-url("background.jpg");
+  // background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)),image-url("background.jpg");
+  background-size: 100% auto;
+  color: #D8D8D8;
+}
+
 #preview{
   position: relative;
   margin: 10px;
   display: inline-block;
+  color: black;
 }
 #img1{
   position: absolute;
