@@ -157,9 +157,9 @@
       <div class='recent-name'>
         <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i></span>
       </div>
-      <div>
+      <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[2].h %>" target="_blank">
-          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[2].h %>.png" class="r-img"/>
+          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[2].h %>.png" width="315"/>
         </a>
       </div>
     <% end %>
@@ -167,18 +167,18 @@
       <div class='recent-name'>
         <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i></span>
       </div>
-      <div>
+      <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[1].h %>" target="_blank">
-          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[1].h %>.png" class="r-img"/>
+          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[1].h %>.png" width="315"/>
         </a>
       </div>
     <% end %>
     <div class='recent-name'>
       <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i></span>
     </div>
-    <div>
+    <div class='r-img'>
       <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[0].h %>" target="_blank">
-        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[0].h %>.png" class="r-img"/>
+        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[0].h %>.png" width="315"/>
       </a>
     </div>
   </div>
