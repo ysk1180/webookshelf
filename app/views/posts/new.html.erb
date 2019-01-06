@@ -157,6 +157,9 @@
 
   // 画像生成
   $("#save-button").on("click", function () {
+    // 処理前に Loading 画像を表示
+    dispLoading('BigTweet準備中...画像を作ってるよ！');
+
     // 生成する文字列の長さ
     var l = 8;
     // 生成する文字列に含める文字セット
@@ -167,11 +170,11 @@
       hash += c[Math.floor(Math.random()*cl)];
     }
 
-    html2canvas($('#preview').get(0)).then( function (canvas) {
+    html2canvas($('#preview').get(0), {
+      proxy: true,
+      useCORS: true
+    }).then( function (canvas) {
       var imgData = canvas.toDataURL();
-
-      // 処理前に Loading 画像を表示
-      dispLoading('BigTweet準備中...画像を作ってるよ！');
 
       $.ajax({
         url: '/make',
@@ -191,6 +194,13 @@
           showConfirmButton: false,
           showCloseButton: true,
           footer: `<a href=https://twitter.com/share?text=%23わたしの本棚&url=https://webookshelf.herokuapp.com?h=${hash} class=share_btn2>Twitterシェア</a>`,
+        })
+      }).fail( function(data) {
+        removeLoading();
+        Swal({
+          type: 'error',
+          title: '画像作成に失敗しました...(; ;)',
+          text: 'もう一度「がぞうをつくる」ボタンを押してみてください(> <)',
         })
       });
     });
