@@ -1,6 +1,6 @@
 <% if @h.present? %>
   <div class='wrap'>
-    <span><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i></span>
+    <span id='link-name'><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i></span>
     <div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
     <div id='view'>
       <%= image_tag 'bookshelf.png', width: 315 %>
