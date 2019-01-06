@@ -248,7 +248,7 @@
   // 画像生成
   $("#save-button").on("click", function () {
     // 処理前に Loading 画像を表示
-    dispLoading('BigTweet準備中...画像を作ってるよ！');
+    dispLoading('本棚作成中...開発者のWeb本棚はこんな感じです');
 
     var title1 = $('#img1').data('title');
     var image1 = $('#preview_image1').attr('src');
@@ -295,7 +295,7 @@
         swal({
           type: 'success',
           // title: 'Let\'s BigTweet!',
-          text: '画像完成！\n↓Let\'s share! ↓',
+          text: '本棚完成！\n↓Let\'s share! ↓',
           imageUrl: `https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/${hash}.png`,
           imageWidth: 315,
           imageAlt: 'Custom image',

@@ -142,15 +142,17 @@ footer a{
   top: 0;
   left: 0;
   background-color: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
+  color: black;
 }
 
 #loading .loadingMsg {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding-top: 140px;
-  background: image-url("gif-load.gif") center center no-repeat;
+  padding-top: 220px;
+  // background: image-url("gif-load.gif") center center no-repeat;
+  background: image-url("mine.png") center center no-repeat;
 }
 
 .modal_btn {
