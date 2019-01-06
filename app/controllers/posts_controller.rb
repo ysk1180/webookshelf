@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   def make
     generate(to_uploaded(params[:imgData]), params[:hash])
+    Post.create!(title1: params[:title1], image1: params[:image1], url1: params[:url1], title2: params[:title2], image2: params[:image2], url2: params[:url2], title3: params[:title3], image3: params[:image3], url3: params[:url3], title4: params[:title4], image4: params[:image4], url4: params[:url4], title5: params[:title5], image5: params[:image5], url5: params[:url5], title: params[:title], name: params[:name], h: params[:hash])
     data = []
     render :json => data
   end

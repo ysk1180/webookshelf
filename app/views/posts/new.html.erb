@@ -2,27 +2,27 @@
   <%= image_tag 'bookshelf.png', width: 315 %>
   <span id="title_preview">
   </span>
-  <span id="img1">
+  <span id="img1" data-title="">
     <a href="" target="_blank" id="preview_url1">
       <img src="" id="preview_image1" width="55px">
     </a>
   </span>
-  <span id="img2">
+  <span id="img2" data-title="">
     <a href="" target="_blank" id="preview_url2">
       <img src="" id="preview_image2" width="55px">
     </a>
   </span>
-  <span id="img3">
+  <span id="img3" data-title="">
     <a href="" target="_blank" id="preview_url3">
       <img src="" id="preview_image3" width="55px">
     </a>
   </span>
-  <span id="img4">
+  <span id="img4" data-title="">
     <a href="" target="_blank" id="preview_url4">
       <img src="" id="preview_image4" width="55px">
     </a>
   </span>
-  <span id="img5">
+  <span id="img5" data-title="">
     <a href="" target="_blank" id="preview_url5">
       <img src="" id="preview_image5" width="55px">
     </a>
@@ -86,6 +86,14 @@
       </div>
       <div class="form-group col-9">
         <%= form.text_area :title, id: :title, value: 'わたしの本棚', class:'form-control', rows:"1" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-3 form-text">
+        お名前
+      </div>
+      <div class="form-group col-9">
+        <%= form.text_area :name, id: :name, class:'form-control', rows:"1" %>
       </div>
     </div>
   </div>
@@ -158,6 +166,24 @@
     // 処理前に Loading 画像を表示
     dispLoading('BigTweet準備中...画像を作ってるよ！');
 
+    var title1 = $('#img1').data('title');
+    var image1 = $('#preview_image1').attr('src');
+    var url1 = $('#preview_url1').attr('href');
+    var title2 = $('#img2').data('title');
+    var image2 = $('#preview_image2').attr('src');
+    var url2 = $('#preview_url2').attr('href');
+    var title3 = $('#img3').data('title');
+    var image3 = $('#preview_image3').attr('src');
+    var url3 = $('#preview_url3').attr('href');
+    var title4 = $('#img4').data('title');
+    var image4 = $('#preview_image4').attr('src');
+    var url4 = $('#preview_url4').attr('href');
+    var title5 = $('#img5').data('title');
+    var image5 = $('#preview_image5').attr('src');
+    var url5 = $('#preview_url5').attr('href');
+    var title = $('#title').val();
+    var name = $('#name').val();
+
     // 生成する文字列の長さ
     var l = 8;
     // 生成する文字列に含める文字セット
@@ -179,7 +205,7 @@
         type: 'POST',
         dataType: 'json',
         async: true,
-        data: {imgData: imgData, hash: hash},
+        data: {imgData: imgData, hash: hash, title1: title1, image1: image1, url1: url1, title2: title2, image2: image2, url2: url2, title3: title3, image3: image3, url3: url3, title4: title4, image4: image4, url4: url4, title5: title5, image5: image5, url5: url5, title: title, name: name},
       }).done(function(data){
         removeLoading();
         swal({
