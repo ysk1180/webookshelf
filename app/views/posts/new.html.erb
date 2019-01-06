@@ -71,12 +71,13 @@
       </a>
     </span>
   </div>
-  <div class='info'><i class="fa fa-info-circle fa-fw"></i>タイトルの一部を入力し、本を選んでください</div>
 </div>
 
 <div id='confirmation-button' style='display: none;'>
   <button id="save-button"><i class="fa fa-check fa-fw"></i>Twitterシェアへ</button>
 </div>
+
+<div class='info'><i class="fa fa-info-circle fa-fw"></i>タイトルの一部を入力し、本を選んでください</div>
 
 <%= form_with(model: @post, local: true, id: 'not_use') do |form| %>
   <div class='form'>
