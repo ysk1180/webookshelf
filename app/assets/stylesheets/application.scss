@@ -2,6 +2,11 @@
 @import "bootstrap";
 @import "font-awesome";
 
+@font-face{
+  font-family: "mushin";
+  src: font-url('mushin.otf') format('truetype');
+}
+
 body {
   // background-image: image-url("background.jpg");
   background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)),image-url("background.jpg");
@@ -10,11 +15,20 @@ body {
   color: #D8D8D8;
 }
 
+.header {
+  // background-color: #0059C8;
+  color: #FFFFFF;
+  font-family: "mushin";
+  font-size: 25px;
+  padding: 3px 20px;
+}
+
 #preview{
   position: relative;
   margin: 10px;
   display: inline-block;
   color: black;
+  font-family: "mushin";
 }
 #img1{
   position: absolute;
