@@ -1,6 +1,10 @@
 <% if @h.present? %>
   <div class='wrap'>
-    <span id='link-name'><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i></span>
+    <span id='link-name'><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i>
+      <% if @h_post.twitter_id.present? %>
+        <a href="https://twitter.com/<%= @h_post.twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+      <% end %>
+    </span>
     <div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
     <div id='view'>
       <%= image_tag 'bookshelf.png', width: 315 %>
@@ -139,7 +143,15 @@
         お名前
       </div>
       <div class="form-group col-9">
-        <%= form.text_area :name, id: :name, class:'form-control', rows:"1" %>
+        <%= form.text_area :name, id: :name, placeholder: '任意', class:'form-control', rows:"1" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-3 form-text">
+        Twitter ID
+      </div>
+      <div class="form-group col-9">
+        <%= form.text_area :twitter_id, id: :twitter_id, placeholder: '任意 / @は不要です', class:'form-control', rows:"1" %>
       </div>
     </div>
   </div>
@@ -155,7 +167,11 @@
     </div>
     <% if @posts[2].present? %>
       <div class='recent-name'>
-        <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i></span>
+        <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i>
+          <% if @post[2].twitter_id.present? %>
+            <a href="https://twitter.com/<%= @post[2].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+          <% end %>
+        </span>
       </div>
       <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[2].h %>" target="_blank">
@@ -165,7 +181,11 @@
     <% end %>
     <% if @posts[1].present? %>
       <div class='recent-name'>
-        <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i></span>
+        <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i>
+          <% if @post[1].twitter_id.present? %>
+            <a href="https://twitter.com/<%= @post[1].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+          <% end %>
+        </span>
       </div>
       <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[1].h %>" target="_blank">
@@ -174,7 +194,11 @@
       </div>
     <% end %>
     <div class='recent-name'>
-      <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i></span>
+      <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i>
+        <% if @post[0].twitter_id.present? %>
+          <a href="https://twitter.com/<%= @post[0].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+        <% end %>
+      </span>
     </div>
     <div class='r-img'>
       <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[0].h %>" target="_blank">
@@ -268,6 +292,7 @@
     var url5 = $('#preview_url5').attr('href');
     var title = $('#title').val();
     var name = $('#name').val();
+    var twitter_id = $('#twitter_id').val();
 
     // 生成する文字列の長さ
     var l = 8;
@@ -290,7 +315,7 @@
         type: 'POST',
         dataType: 'json',
         async: true,
-        data: {imgData: imgData, hash: hash, title1: title1, image1: image1, url1: url1, title2: title2, image2: image2, url2: url2, title3: title3, image3: image3, url3: url3, title4: title4, image4: image4, url4: url4, title5: title5, image5: image5, url5: url5, title: title, name: name},
+        data: {imgData: imgData, hash: hash, title1: title1, image1: image1, url1: url1, title2: title2, image2: image2, url2: url2, title3: title3, image3: image3, url3: url3, title4: title4, image4: image4, url4: url4, title5: title5, image5: image5, url5: url5, title: title, name: name, twitter_id: twitter_id},
       }).done(function(data){
         removeLoading();
         swal({
