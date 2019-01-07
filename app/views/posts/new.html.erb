@@ -168,7 +168,7 @@
     <% if @posts[2].present? %>
       <div class='recent-name'>
         <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i>
-          <% if @post[2].twitter_id.present? %>
+          <% if @posts[2].twitter_id.present? %>
             <a href="https://twitter.com/<%= @post[2].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
           <% end %>
         </span>
@@ -182,7 +182,7 @@
     <% if @posts[1].present? %>
       <div class='recent-name'>
         <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i>
-          <% if @post[1].twitter_id.present? %>
+          <% if @posts[1].twitter_id.present? %>
             <a href="https://twitter.com/<%= @post[1].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
           <% end %>
         </span>
@@ -195,7 +195,7 @@
     <% end %>
     <div class='recent-name'>
       <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i>
-        <% if @post[0].twitter_id.present? %>
+        <% if @posts[0].twitter_id.present? %>
           <a href="https://twitter.com/<%= @post[0].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
         <% end %>
       </span>
