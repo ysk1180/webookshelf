@@ -2,7 +2,7 @@
   <div class='wrap'>
     <span id='link-name'><i><%= @h_post.name.present? ? @h_post.name : '名無し' %>さんの本棚</i>
       <% if @h_post.twitter_id.present? %>
-        <a href="https://twitter.com/<%= @h_post.twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+        <a href="https://twitter.com/<%= @h_post.twitter_id %>" target="_blank"><i class="fa fa-twitter fa-lg twitter-icon"></i></a>
       <% end %>
     </span>
     <div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
@@ -13,27 +13,27 @@
       </span>
       <span id="view_img1">
         <a href="<%= @h_post.url1 %>" target="_blank" id="view_url1">
-          <img src="<%= @h_post.image1 %>" id="view_image1" width="55px">
+          <img src="<%= @h_post.image1 %>" id="view_image1" width="55px" class='book-body'>
         </a>
       </span>
       <span id="view_img2">
         <a href="<%= @h_post.url2 %>" target="_blank" id="view_url2">
-          <img src="<%= @h_post.image2 %>" id="view_image2" width="55px">
+          <img src="<%= @h_post.image2 %>" id="view_image2" width="55px" class='book-body'>
         </a>
       </span>
       <span id="view_img3">
         <a href="<%= @h_post.url3 %>" target="_blank" id="view_url3">
-          <img src="<%= @h_post.image3 %>" id="view_image3" width="55px">
+          <img src="<%= @h_post.image3 %>" id="view_image3" width="55px" class='book-body'>
         </a>
       </span>
       <span id="view_img4">
         <a href="<%= @h_post.url4 %>" target="_blank" id="view_url4">
-          <img src="<%= @h_post.image4 %>" id="view_image4" width="55px">
+          <img src="<%= @h_post.image4 %>" id="view_image4" width="55px" class='book-body'>
         </a>
       </span>
       <span id="view_img5">
         <a href="<%= @h_post.url5 %>" target="_blank" id="view_url5">
-          <img src="<%= @h_post.image5 %>" id="view_image5" width="55px">
+          <img src="<%= @h_post.image5 %>" id="view_image5" width="55px" class='book-body'>
         </a>
       </span>
     </div>
@@ -187,13 +187,13 @@
       <div class='recent-name'>
         <span><i><%= @posts[2].name.present? ? @posts[2].name : '名無し' %>さんの本棚</i>
           <% if @posts[2].twitter_id.present? %>
-            <a href="https://twitter.com/<%= @posts[2].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+            <a href="https://twitter.com/<%= @posts[2].twitter_id %>" target="_blank"><i class="fa fa-twitter fa-lg twitter-icon"></i></a>
           <% end %>
         </span>
       </div>
       <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[2].h %>" target="_blank">
-          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[2].h %>.png" width="315"/>
+          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[2].h %>.png" width="315" class='r-img-body'/>
         </a>
       </div>
     <% end %>
@@ -201,26 +201,26 @@
       <div class='recent-name'>
         <span><i><%= @posts[1].name.present? ? @posts[1].name : '名無し' %>さんの本棚</i>
           <% if @posts[1].twitter_id.present? %>
-            <a href="https://twitter.com/<%= @posts[1].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+            <a href="https://twitter.com/<%= @posts[1].twitter_id %>" target="_blank"><i class="fa fa-twitter fa-lg twitter-icon"></i></a>
           <% end %>
         </span>
       </div>
       <div class='r-img'>
         <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[1].h %>" target="_blank">
-          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[1].h %>.png" width="315"/>
+          <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[1].h %>.png" width="315" class='r-img-body'/>
         </a>
       </div>
     <% end %>
     <div class='recent-name'>
       <span><i><%= @posts[0].name.present? ? @posts[0].name : '名無し' %>さんの本棚</i>
         <% if @posts[0].twitter_id.present? %>
-          <a href="https://twitter.com/<%= @posts[0].twitter_id %>" target="_blank"><i class="fa fa-twitter twitter-icon"></i></a>
+          <a href="https://twitter.com/<%= @posts[0].twitter_id %>" target="_blank"><i class="fa fa-twitter fa-lg twitter-icon"></i></a>
         <% end %>
       </span>
     </div>
     <div class='r-img'>
       <a href="https://webookshelf.herokuapp.com/?h=<%= @posts[0].h %>" target="_blank">
-        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[0].h %>.png" width="315"/>
+        <img src="https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/<%= @posts[0].h %>.png" width="315" class='r-img-body'/>
       </a>
     </div>
   </div>

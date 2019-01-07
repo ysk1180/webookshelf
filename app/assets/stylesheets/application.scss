@@ -112,6 +112,10 @@ footer a{
   font-size: 25px;
   font-weight: bold;
 }
+.book-body:hover{
+  opacity: .7;
+  text-decoration: none;
+}
 
 .form{
   margin: 10px 0;
@@ -125,6 +129,12 @@ footer a{
 .item{
   display: table;
   margin-bottom: 10px;
+  cursor: pointer;
+  cursor: hand;
+}
+.item:hover{
+  opacity: .7;
+  text-decoration: none;
 }
 .item-img{
   display: table-cell;
@@ -202,6 +212,10 @@ footer a{
 .r-img{
   margin-bottom: 10px;
 }
+.r-img-body:hover{
+  opacity: .7;
+  text-decoration: none;
+}
 
 #confirmation-button{
   text-align: center;
@@ -210,6 +224,10 @@ footer a{
 
 .twitter-icon{
   color: #1CA1F2;
+}
+.twitter-icon:hover{
+  opacity: .7;
+  text-decoration: none;
 }
 .search{
   cursor: pointer;
