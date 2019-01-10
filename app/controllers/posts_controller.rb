@@ -48,7 +48,8 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def index
+    @posts = Post.order('created_at desc')
   end
 
   def make
