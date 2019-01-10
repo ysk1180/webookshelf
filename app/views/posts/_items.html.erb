@@ -1,12 +1,14 @@
 <% books&.each.with_index(1) do |book, index| %>
-  <div class="item" data-item="<%= index %>" data-src="<%= book[:image] %>" data-url="<%= book[:url] %>" data-number="<%= index_number %>" data-title="<%= book[:title] %>">
-    <div class='item-img'>
-      <%= image_tag book[:image], width: '55px', id: "image#{index}" %>
+  <% if book[:image].present? %>
+    <div class="item" data-item="<%= index %>" data-src="<%= book[:image] %>" data-url="<%= book[:url] %>" data-number="<%= index_number %>" data-title="<%= book[:title] %>">
+      <div class='item-img'>
+        <%= image_tag book[:image], width: '55px', id: "image#{index}" %>
+      </div>
+      <div class='item-title'>
+        <%= book[:title] %>
+      </div>
     </div>
-    <div class='item-title'>
-      <%= book[:title] %>
-    </div>
-  </div>
+  <% end %>
 <% end %>
 
 <script>
