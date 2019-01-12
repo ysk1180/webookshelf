@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  PER = 10
+
   def new
     respond_to do |format|
       format.html do
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order('created_at desc')
+    @posts = Post.order('created_at desc').page(params[:page]).per(PER)
   end
 
   def make

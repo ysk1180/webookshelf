@@ -260,3 +260,16 @@ footer a{
   margin-top: 10px;
   color: white;
 }
+
+.page-link{
+  background-color: black;
+  color: #D8D8D8;
+  border-color: #D8D8D8;
+}
+.page-link:hover{
+  background-color: black;
+}
+.pagination{
+  justify-content: center;
+  margin-top: 20px;
+}
