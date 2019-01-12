@@ -226,6 +226,12 @@
   </div>
 <% end %>
 
+<div class='see-more'>
+  <%= link_to bookshelves_path, style:'color: white;' do %>
+    <u><i><i class="fa fa-plus-square fa-fw"></i>もっと見る</i></u>
+  <% end %>
+</div>
+
 <script>
   function search(keyword ,index){
     if (globalTimeout != null) {

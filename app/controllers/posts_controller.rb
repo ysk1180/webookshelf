@@ -52,6 +52,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order('created_at desc').page(params[:page]).per(PER)
+    @count = Post.all.count
   end
 
   def make
