@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  PER = 10
+
   def new
     respond_to do |format|
       format.html do
@@ -48,7 +50,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def index
+    @posts = Post.order('created_at desc').page(params[:page]).per(PER)
+    @count = Post.all.count
   end
 
   def make

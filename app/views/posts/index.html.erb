@@ -1,0 +1,59 @@
+<div class='index-title'>
+  今までに作られた本棚
+  <small>計<%= @count %>個</small>
+</div>
+<div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
+
+<% @posts.each do |post| %>
+  <div class='index-wrap'>
+    <div class='maker'>
+      <a href="https://webookshelf.herokuapp.com/?h=<%= post.h %>" target="_blank" style='color: #D8D8D8;'>
+        <span class='link-name'><i><%= post.name.present? ? post.name : '名無し' %>さんの本棚</i>
+      </a>
+      <% if post.twitter_id.present? %>
+        <a href="https://twitter.com/<%= post.twitter_id %>" target="_blank"><i class="fa fa-twitter fa-lg twitter-icon"></i></a>
+      <% end %>
+      </span>
+    </div>
+    <div class='view'>
+      <%= image_tag 'bookshelf.png', width: 315 %>
+      <span class="title_view">
+        <%= post.title %>
+      </span>
+      <span class="view_img1">
+        <a href="<%= post.url1 %>" target="_blank" id="view_url1">
+          <img src="<%= post.image1 %>" id="view_image1" width="55px" class='book-body'>
+        </a>
+      </span>
+      <span class="view_img2">
+        <a href="<%= post.url2 %>" target="_blank" id="view_url2">
+          <img src="<%= post.image2 %>" id="view_image2" width="55px" class='book-body'>
+        </a>
+      </span>
+      <span class="view_img3">
+        <a href="<%= post.url3 %>" target="_blank" id="view_url3">
+          <img src="<%= post.image3 %>" id="view_image3" width="55px" class='book-body'>
+        </a>
+      </span>
+      <span class="view_img4">
+        <a href="<%= post.url4 %>" target="_blank" id="view_url4">
+          <img src="<%= post.image4 %>" id="view_image4" width="55px" class='book-body'>
+        </a>
+      </span>
+      <span class="view_img5">
+        <a href="<%= post.url5 %>" target="_blank" id="view_url5">
+          <img src="<%= post.image5 %>" id="view_image5" width="55px" class='book-body'>
+        </a>
+      </span>
+    </div>
+    <div class='share-shelf'>
+      <a href="https://twitter.com/share?text=%23Web本棚&url=https://webookshelf.herokuapp.com?h=<%= post.h %>" target="_blank" style='color: #A4A4A4;'>
+        <span><%= post.name.present? ? post.name : '名無し' %>さんの本棚をシェア</span><i class="fa fa-share-square-o fa-fw"></i>
+      </a>
+    </div>
+  </div>
+<% end %>
+
+<div>
+  <%= paginate @posts, window: 2 %>
+</div>
