@@ -144,6 +144,57 @@ footer a{
   vertical-align: middle;
   padding-left: 10px;
 }
+.bookranking-content{
+  display: table;
+  margin: 10px;
+}
+.bookranking-content a{
+  color: #D8D8D8;
+  text-decoration: none;
+}
+.bookranking-content:hover{
+  opacity: .7;
+  text-decoration: none;
+}
+.bookranking-item-rank{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 40px;
+}
+.ranking-number-1{
+  font-size: 30px;
+  font-weight: bold;
+  color: #FFD700;
+}
+.ranking-number-2{
+  font-size: 30px;
+  font-weight: bold;
+  color: #C0C0C0;
+}
+.ranking-number-3{
+  font-size: 30px;
+  font-weight: bold;
+  color: #C47222;
+}
+.ranking-number-others{
+  font-size: 20px;
+  font-weight: bold;
+}
+.ranking-count{
+  font-size: 15px;
+  color: #A4A4A4;
+}
+.bookranking-item-img{
+  display: table-cell;
+  vertical-align: middle;
+}
+.bookranking-item-title{
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 10px;
+  font-size: 14px;
+}
 
 #loading {
   display: table;
