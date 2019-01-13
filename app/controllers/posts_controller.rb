@@ -63,6 +63,7 @@ class PostsController < ApplicationController
   end
 
   def bookranking
+    @h = 'bookranking'
     sql = "
     select
       count(*), books.title, books.image, books.url

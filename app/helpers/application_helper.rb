@@ -1,7 +1,11 @@
 module ApplicationHelper
   def get_twitter_card_info(h)
     twitter_card = {}
-    if h.present?
+    if h == 'bookranking'
+      twitter_card[:url] = 'https://webookshelf.herokuapp.com/bookranking'
+      twitter_card[:image] = 'https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/bookranking'
+      twitter_card[:title] = '本棚に多く入れられた本トップ20'
+    elsif h.present?
       twitter_card[:url] = "https://webookshelf.herokuapp.com/?h=#{h}"
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/webookshelf-production/images/#{h}.png"
       name = Post.find_by(h: h).name
