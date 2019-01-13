@@ -62,6 +62,24 @@ class PostsController < ApplicationController
     render :json => data
   end
 
+  def bookranking
+    sql = "
+    select
+      count(*), books.title, books.image, books.url
+    from (
+      select title1 as title, image1 as image, url1 as url from posts where title1 != ''
+      union all select title2 as title, image2 as image, url2 as url from posts where title2 != ''
+      union all select title3 as title, image3 as image, url3 as url from posts where title3 != ''
+      union all select title4 as title, image4 as image, url4 as url from posts where title4 != ''
+      union all select title5 as title, image5 as image, url5 as url from posts where title5 != ''
+      ) as books
+    group by books.title, books.image, books.url
+    order by count(*) desc
+    limit 20
+    "
+    @books = ActiveRecord::Base.connection.select_all(sql)
+  end
+
   private
 
   def to_uploaded(base64_param)

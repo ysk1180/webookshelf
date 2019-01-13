@@ -30,10 +30,26 @@
   </head>
 
   <body>
-    <div class="header">
-      <a href="/" style="color: white;"><i class="fa fa-book fa-fw"></i>Web本棚</a>
-      <span id='sub-title'>あなただけの本棚をシェアしよう</span>
-    </div>
+    <header>
+      <div class="inner clearfix">
+        <h1><a href="/" style="color: white;"><i class="fa fa-book fa-fw"></i>Web本棚</a></h1>
+        <div id="nav_toggle">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><%= link_to '本棚を作る', root_path %></li>
+            <li><%= link_to '本棚一覧', bookshelves_path %></li>
+            <li><%= link_to '本棚に多く入れられた本トップ20', bookranking_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <div class="container">
       <%= yield %>
     </div>
@@ -45,5 +61,13 @@
         <a href="https://twitter.com/ysk_pro" target="_blank"><i class="fa fa-twitter fa-fw"></i>開発者Twitterアカウント</a>
       </div>
     </footer>
+
+    <script>
+      // ハンバーガーメニュー
+      $('#nav_toggle').on("click", function() {
+        $("header").toggleClass('open');
+        $("nav").slideToggle(500);
+      });
+    </script>
   </body>
 </html>

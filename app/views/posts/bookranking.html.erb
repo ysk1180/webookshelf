@@ -1,0 +1,23 @@
+<div class='index-title'>
+  本棚に多く入れられた本<span style='color: #FFD700;'>トップ20</span>
+</div>
+<div class='info'><i class="fa fa-info-circle fa-fw"></i>本はamazonへのリンクになっています</div>
+
+<% @books.each.with_index(1) do |book, index| %>
+  <div class='bookranking-content'>
+  <%= link_to book['url'], target: '_blank' do %>
+    <div class='bookranking-item-rank'>
+      <span class='ranking-number-<%= index <= 3 ? index : "others" %>'><%= index %></span>
+      <div class='ranking-count'>
+        <%= book['count'] %><small>回</small>
+      </div>
+    </div>
+    <div class='bookranking-item-img'>
+      <%= image_tag book['image'], width: '55px' %>
+    </div>
+    <div class='bookranking-item-title'>
+      <%= book['title'] %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
