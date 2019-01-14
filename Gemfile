@@ -56,3 +56,5 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'google-analytics-rails'
 
 gem 'kaminari'
+
+gem 'ransack', github: 'activerecord-hackery/ransack'

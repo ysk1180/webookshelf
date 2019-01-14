@@ -51,7 +51,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order('created_at desc').page(params[:page]).per(PER)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.order('created_at desc').page(params[:page]).per(PER)
     @count = Post.all.count
   end
 

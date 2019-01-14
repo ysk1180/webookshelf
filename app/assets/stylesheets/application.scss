@@ -117,6 +117,12 @@ footer a{
   text-align: center;
   font-family: "mushin";
 }
+.form-text-search{
+  text-align: center;
+  font-family: "mushin";
+  font-size: 15px;
+  margin: 10px 0 0 0;
+}
 
 .item{
   display: table;
@@ -301,7 +307,7 @@ footer a{
   text-align: center;
   font-size: 22px;
   font-family: "mushin";
-  margin-top: 10px;
+  margin: 10px 0;
   color: white;
 }
 
@@ -442,3 +448,11 @@ header h1{
   }
 }
 // ハンバーガーメニューここまで
+
+.search-message{
+  font-family: "mushin";
+  color: #F6CEF5;
+  font-size: 12px;
+  text-align: center;
+  margin: -15px 0 10px 0;
+}
