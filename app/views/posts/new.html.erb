@@ -81,7 +81,7 @@
 </div>
 
 <div id='confirmation-button' style='display: none;'>
-  <button id="save-button"><i class="fa fa-check fa-fw"></i>Twitterシェアへ</button>
+  <button id="save-button"><i class="fa fa-check fa-fw"></i>本棚をシェアする</button>
 </div>
 
 <div class='info'><i class="fa fa-info-circle fa-fw"></i>タイトルの一部を入力し、本を選んでください</div>
@@ -378,7 +378,7 @@
           imageAlt: 'Custom image',
           showConfirmButton: false,
           showCloseButton: true,
-          footer: `<a href=https://twitter.com/share?text=%23Web本棚&url=https://webookshelf.herokuapp.com?h=${hash} class=modal_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a>`,
+          footer: `<div class=modal-twitter><a href=https://twitter.com/share?text=%23Web本棚&url=https://webookshelf.herokuapp.com?h=${hash} class=modal_btn><i class="fa fa-twitter fa-fw"></i>Twitterシェア</a><a href=https://www.facebook.com/sharer/sharer.php?u=https://webookshelf.herokuapp.com?h=${hash} class=modal_btn-f><i class="fa fa-facebook fa-fw"></i>Facebookシェア</a></div><div class=copy>URLでシェア<input type=text size=40 class=form-control value=https://webookshelf.herokuapp.com?h=${hash} onfocus=this.select(); readonly></div>`,
         })
       }).fail( function(data) {
         removeLoading();
