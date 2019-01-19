@@ -2,52 +2,22 @@ class PostsController < ApplicationController
   PER = 10
 
   def new
-    respond_to do |format|
-      format.html do
-        @h = params[:h]
-        @h_post = Post.find_by(h: @h) if @h.present?
-        post = Post.all
-        if post[-3].present?
-          @posts = Post.last(3)
-        elsif post[-2].present?
-          @posts = Post.last(2)
-        elsif post.present?
-          @posts = [Post.last]
-        end
-        @count = post.count
-      end
-      format.json do
-        keyword = params[:keyword]
-
-        # デバッグ出力用
-        Amazon::Ecs.debug = true
-
-        # 一旦丸々コピペでテスト（あとでチューニング）
-        books = Amazon::Ecs.item_search(
-          params[:keyword],
-          search_index:  'Books',
-          dataType: 'script',
-          response_group: 'ItemAttributes, Images',
-          country:  'jp',
-          power: 'Not kindle'
-        )
-        # 本のタイトル,画像URL, 詳細ページURLの取得
-        @books = []
-        books.items.each do |item|
-          book = {
-            title: item.get('ItemAttributes/Title'),
-            image: item.get('LargeImage/URL'),
-            url: item.get('DetailPageURL'),
-          }
-          @books << book
-        end
-        ret =
-          {
-            content: render_to_string(partial: 'posts/items.html.erb', locals: {books: @books, index_number: params[:index]}),
-        }
-        render json: ret
-      end
+    @h = params[:h]
+    @h_post = Post.find_by(h: @h) if @h.present?
+    post = Post.all
+    if post[-3].present?
+      @posts = Post.last(3)
+    elsif post[-2].present?
+      @posts = Post.last(2)
+    elsif post.present?
+      @posts = [Post.last]
     end
+    @count = post.count
+  end
+
+  def search
+    contents = { content: render_to_string(partial: 'posts/items.html.erb', locals: {books: search_by_amazon(params[:keyword]), index_number: params[:index]}) }
+    render json: contents
   end
 
   def index
@@ -84,6 +54,33 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def search_by_amazon(keyword)
+    # デバッグ出力用/trueで出力
+    Amazon::Ecs.debug = false
+
+    # AmazonAPIで検索
+    results = Amazon::Ecs.item_search(
+      keyword,
+      search_index:  'Books',
+      dataType: 'script',
+      response_group: 'ItemAttributes, Images',
+      country:  'jp',
+      power: 'Not kindle'
+    )
+
+    # 検索結果から本のタイトル,画像URL, 詳細ページURLの取得
+    books = []
+    results.items.each do |item|
+      book = {
+        title: item.get('ItemAttributes/Title'),
+        image: item.get('LargeImage/URL'),
+        url: item.get('DetailPageURL'),
+      }
+      books << book
+    end
+    books
+  end
 
   def to_uploaded(base64_param)
     content_type, string_data = base64_param.match(/data:(.*?);(?:.*?),(.*)$/).captures
