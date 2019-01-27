@@ -369,7 +369,7 @@
         data: {imgData: imgData, hash: hash, title1: title1, image1: image1, url1: url1, title2: title2, image2: image2, url2: url2, title3: title3, image3: image3, url3: url3, title4: title4, image4: image4, url4: url4, title5: title5, image5: image5, url5: url5, title: title, name: name, twitter_id: twitter_id},
       }).done(function(data){
         removeLoading();
-        swal({
+        Swal.fire({
           type: 'success',
           // title: 'Let\'s BigTweet!',
           text: '本棚完成！\n↓Let\'s share! ↓',
@@ -382,7 +382,7 @@
         })
       }).fail( function(data) {
         removeLoading();
-        Swal({
+        Swal.fire({
           type: 'error',
           title: '画像作成に失敗しました...(; ;)',
           text: 'もう一度ボタンを押してみてください(> <)',
