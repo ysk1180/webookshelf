@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービス名
+Web本棚 https://webookshelf.herokuapp.com/
 
-Things you may want to cover:
+## 概要
+Web上で本棚を共有できるサービス
 
-* Ruby version
+## バージョン
+| Name | Version |
+|:-|:-|
+| Ruby | 2.5.1 |
+| Rails | 5.2.1 |
+| PostgreSQL | 11.1 |
 
-* System dependencies
+## リリース日
+2019年1月6日
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 作者
+@ysk1180
