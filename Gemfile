@@ -47,7 +47,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 
 # Amazon API
-gem 'amazon-ecs'
+gem 'vacuum'
 
 gem "font-awesome-rails"
 
