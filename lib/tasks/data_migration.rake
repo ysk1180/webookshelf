@@ -28,13 +28,18 @@ namespace :onetime do
         end
 
         row_release_data = item.dig('ItemInfo', 'ContentInfo', 'PublicationDate', 'DisplayValue')
+        begin
+          parsed_date = Date.parse(row_release_data).strftime("%Y/%m/%d")
+        rescue => e
+          puts "日付のパースエラー。パースできなかった日付：#{row_release_data}。エラー：#{e}"
+        end
         book = Book.create!(
           asin: asin,
           title: item.dig('ItemInfo', 'Title', 'DisplayValue'),
           image: item.dig('Images', 'Primary', 'Large', 'URL'),
           url: item.dig('DetailPageURL'),
           page: item.dig('ItemInfo', 'ContentInfo', 'PagesCount', 'DisplayValue'),
-          released_at: Date.parse(row_release_data).strftime("%Y/%m/%d")
+          released_at: parsed_date
         )
         BookshelfBook.create!(book_id: book.id, bookshelf_id: bookshelf.id)
 
