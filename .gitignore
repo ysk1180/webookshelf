@@ -29,3 +29,6 @@
 .env
 
 /vendor/bundle
+
+.idea/*
+
