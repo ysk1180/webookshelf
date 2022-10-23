@@ -16,6 +16,7 @@ namespace :onetime do
                                         resources: ['ItemInfo.Title', 'Images.Primary.Large', 'ItemInfo.ContentInfo']).to_h
         items = response.dig('SearchResult', 'Items')
 
+        next if items.blank?
         item = items[0]
 
         asin = item.dig('ASIN')
