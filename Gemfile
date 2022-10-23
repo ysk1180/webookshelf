@@ -43,7 +43,7 @@ gem 'fog-aws'
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # Amazon API
