@@ -1,0 +1,2 @@
+class BookshelfBook < ApplicationRecord
+end
