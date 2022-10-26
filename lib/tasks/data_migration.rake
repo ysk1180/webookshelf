@@ -11,13 +11,23 @@ namespace :onetime do
                              access_key: ENV['AMAZON_API_ACCESS_KEY'],
                              secret_key: ENV['AMAZON_API_SECRET_KEY'],
                              partner_tag: ENV['ASSOCIATE_TAG'])
-        response = request.search_items(keywords: book_title,
-                                        search_index: 'Books',
-                                        resources: ['ItemInfo.Title', 'Images.Primary.Large', 'ItemInfo.ContentInfo']).to_h
-        items = response.dig('SearchResult', 'Items')
+        begin
+          response = request.search_items(keywords: book_title,
+                                          search_index: 'Books',
+                                          resources: ['ItemInfo.Title', 'Images.Primary.Large', 'ItemInfo.ContentInfo']).to_h
+          items = response.dig('SearchResult', 'Items')
+          raise if items.blank?
+        rescue
+          puts "[1回目] title:#{book_title}はAmazon APIで見つかりませんでした。post_id:#{post.id}"
+          sleep(6)
+          response = request.search_items(keywords: book_title,
+                                          search_index: 'Books',
+                                          resources: ['ItemInfo.Title', 'Images.Primary.Large', 'ItemInfo.ContentInfo']).to_h
+          items = response.dig('SearchResult', 'Items')
+        end
 
         if items.blank?
-          puts "title:#{book_title}はAmazon APIで見つかりませんでした。post_id:#{post.id}"
+          puts "[2回目] title:#{book_title}はAmazon APIで見つかりませんでした。post_id:#{post.id}"
           next
         end
         item = items[0]
@@ -46,7 +56,7 @@ namespace :onetime do
         )
         BookshelfBook.create!(book_id: new_book.id, bookshelf_id: bookshelf.id)
 
-        sleep(2)
+        sleep(3)
       end
     end
   end
