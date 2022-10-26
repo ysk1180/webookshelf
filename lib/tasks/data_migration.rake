@@ -16,7 +16,10 @@ namespace :onetime do
                                         resources: ['ItemInfo.Title', 'Images.Primary.Large', 'ItemInfo.ContentInfo']).to_h
         items = response.dig('SearchResult', 'Items')
 
-        next if items.blank?
+        if items.blank?
+          puts "title:#{book_title}はAmazon APIで見つかりませんでした。post_id:#{post.id}"
+          next
+        end
         item = items[0]
 
         asin = item.dig('ASIN')
@@ -33,7 +36,7 @@ namespace :onetime do
         rescue => e
           puts "日付のパースエラー。パースできなかった日付：#{row_release_data}。エラー：#{e}"
         end
-        book = Book.create!(
+        new_book = Book.create!(
           asin: asin,
           title: item.dig('ItemInfo', 'Title', 'DisplayValue'),
           image: item.dig('Images', 'Primary', 'Large', 'URL'),
@@ -41,9 +44,9 @@ namespace :onetime do
           page: item.dig('ItemInfo', 'ContentInfo', 'PagesCount', 'DisplayValue'),
           released_at: parsed_date
         )
-        BookshelfBook.create!(book_id: book.id, bookshelf_id: bookshelf.id)
+        BookshelfBook.create!(book_id: new_book.id, bookshelf_id: bookshelf.id)
 
-        sleep(1)
+        sleep(2)
       end
     end
   end
