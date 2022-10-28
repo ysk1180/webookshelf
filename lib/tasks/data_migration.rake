@@ -1,6 +1,6 @@
 namespace :onetime do
   task migration: :environment do
-    Post.all.each do |post|
+    Post.where(migrated: false).each do |post|
       book_titles = [post.title1, post.title2, post.title3, post.title4, post.title5].compact.uniq.reject(&:blank?)
       next if book_titles.empty?
 
@@ -28,7 +28,7 @@ namespace :onetime do
 
         if items.blank?
           puts "[2回目] title:#{book_title}はAmazon APIで見つかりませんでした。post_id:#{post.id}"
-          next
+          raise
         end
         item = items[0]
 
@@ -58,6 +58,7 @@ namespace :onetime do
 
         sleep(3)
       end
+      post.update!(migrated: true)
     end
   end
 end
